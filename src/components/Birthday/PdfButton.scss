@@ -7,8 +7,15 @@
     width: 30%;
     border-radius: 10px;
     box-sizing: border-box;
+    font-size: 40px;
+    background-color: $blockColour;
+    border: solid 2px white;
 }
 
+.btn-pdf a{
+    text-decoration: none;
+    color: aliceblue;
+}
 .btn-pdf:hover{
     background-color: $hoverColour;
     cursor: pointer;
