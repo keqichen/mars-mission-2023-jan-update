@@ -48,11 +48,7 @@ export function Birthday() {
             <h1 className="birthday-title">Capture the Magic of Your Birthday on Mars:</h1>
             <h2 className="birthday-subtitle">Enter Your Name and Birthday to Receive Your Personalized Martian Photos!</h2>
             <DateNameUserInput setName={setName} setBirthday={setBirthday} handleSubmit={handleSubmit} />
-
-            {/* how to update the useState after submitting a form? */}
-            <section>
-                <p className="MarsAge">Hi {nameInput}, you are {marsAgeResult} Mars years old! </p>
-            </section>
+            <p className="MarsAge">Hi {nameInput}, you are {marsAgeResult} Mars years old! </p>
 
             {/* <div><BirthdayYearDropdown selectedYear={selectedYear} setSelectedYear={setSelectedYear}/></div> */}
             <div><ImageViewer src={url}/></div>

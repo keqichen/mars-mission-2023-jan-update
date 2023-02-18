@@ -24,40 +24,39 @@ export const Navbar: React.FunctionComponent = () => {
       <div className="burger-button" onClick={toggleHamburger}>
         <Hamburger isOpen={hamburgerOpen} />
       </div>
-      <ul className={hamburgerOpen ? "hamburger-open" : "hamburger-closed"}>
-        <li />
-        <li>
+      <ul className={hamburgerOpen ? "hamburger-open" : "hamburger-closed"} id="nav-desktop">
+        <li className="nav-item">
           <Link className="navigation-button" to="/">
             <IoMdPlanet />
             <br></br>Home
           </Link>
         </li>
-        <li>
+        <li className="nav-item">
           <Link className="navigation-button" to="/journey">
             <GiSpaceShuttle />
             <br />
             Journey
           </Link>
         </li>
-        <li>
+        <li className="nav-item">
           <Link className="navigation-button" to="/mars-viewer">
             <IoIosCamera />
             <br />
             Mars Viewer
           </Link>
         </li>
-        <li>
+        <li className="nav-item">
           <Link className="navigation-button" to="/birthday">
             <IoMdCalendar />
             <br />
             Birthday
           </Link>
         </li>
-        <li>
+        <li className="nav-item">
           <Link className="navigation-button" to="/info">
             <IoIosInformationCircleOutline />
             <br />
-            Info
+            Information
           </Link>
         </li>
       </ul>
