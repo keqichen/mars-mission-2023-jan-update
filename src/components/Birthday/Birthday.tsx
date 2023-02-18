@@ -5,12 +5,17 @@ import { ImageSelector } from "../marsPhotoViewer/ImageSelector";
 import { BirthdayYearDropdown } from "./BirthdayYearDropdown";
 import { useRef } from "react";
 import './Birthday.scss'
+import "./PdfButton.scss";
 import PdfButton from "./PdfButton";
 import {useReactToPrint} from "react-to-print";
 
 export function Birthday() {
     const [name, setName] = useState("");
     const [birthday, setBirthday] = useState("a lovely day");
+
+    const [nameInput, setNameInput]=useState(name);
+    const [birthdayInput, setBirthdayInput]=useState(birthday);
+
     const [selectedYear,setSelectedYear] = useState("")
     const [url,setUrl] = useState("https://th.bing.com/th/id/OIP.L1bUoUEuOYDbhgQcomH4RgHaFQ?w=222&h=180&c=7&r=0&o=5&pid=1.7");
     const today = new Date();
@@ -27,6 +32,8 @@ export function Birthday() {
 
     function handleSubmit(event: any) {
         event.preventDefault();
+        setNameInput(name);
+        setBirthdayInput(birthday);
     }
 
     const handlePrint = useReactToPrint({
@@ -46,7 +53,7 @@ export function Birthday() {
             </section>
             <div><BirthdayYearDropdown selectedYear={selectedYear} setSelectedYear={setSelectedYear}/></div>
             <div><ImageViewer src={url}/></div>
-            <div><ImageSelector setState={setUrl} date={birthYear<=2012?"2012"+"-"+birthday.slice(5,10):birthday} rover="curiosity" camera="mast"/></div>
+            <div><ImageSelector setState={setUrl} date={birthYear<=2012?"2012"+"-"+birthdayInput.slice(5,10):birthdayInput} rover="curiosity" camera="mast"/></div>
             {/* <PdfButton handlePrint={handlePrint} /> */}
             <button className="btn-pdf"><a href={url} download={url} target="_blank">Your birthday card is ready!</a></button>
         </main>
