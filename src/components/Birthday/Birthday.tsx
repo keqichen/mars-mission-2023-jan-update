@@ -48,10 +48,11 @@ export function Birthday() {
             {/* how to update the useState after submitting a form? */}
             <section className={(earthAge) ? " " : "Mars-Age-hidden"} >
                 <article>
-                    <p className="MarsAge">Hi {name}, you are {marsAge} Mars years old! </p>
+                    <p className="MarsAge">Hi {nameInput}, you are {marsAge} Mars years old! </p>
                 </article>
             </section>
-            <div><BirthdayYearDropdown selectedYear={selectedYear} setSelectedYear={setSelectedYear}/></div>
+
+            {/* <div><BirthdayYearDropdown selectedYear={selectedYear} setSelectedYear={setSelectedYear}/></div> */}
             <div><ImageViewer src={url}/></div>
             <div><ImageSelector setState={setUrl} date={birthYear<=2012?"2012"+"-"+birthdayInput.slice(5,10):birthdayInput} rover="curiosity" camera="mast"/></div>
             {/* <PdfButton handlePrint={handlePrint} /> */}
