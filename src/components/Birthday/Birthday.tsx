@@ -10,14 +10,14 @@ import PdfButton from "./PdfButton";
 import {useReactToPrint} from "react-to-print";
 
 export function Birthday() {
-    const [name, setName] = useState("");
+    const [name, setName] = useState("Mars");
     const [birthday, setBirthday] = useState("a lovely day");
-
     const [nameInput, setNameInput]=useState(name);
     const [birthdayInput, setBirthdayInput]=useState(birthday);
+    
 
-    const [selectedYear,setSelectedYear] = useState("")
-    const [url,setUrl] = useState("https://th.bing.com/th/id/OIP.L1bUoUEuOYDbhgQcomH4RgHaFQ?w=222&h=180&c=7&r=0&o=5&pid=1.7");
+    // const [selectedYear,setSelectedYear] = useState("")
+    const [url,setUrl] = useState("https://cdn2.penguin.com.au/covers/original/9781524791223.jpg");
     const today = new Date();
     const currentYear = today.getFullYear();
     const currentMonth = today.getMonth();
@@ -28,17 +28,21 @@ export function Birthday() {
     //A mars year is 1.88 earth years. toFixed() function returns a string, not an integer
     const marsAge = (earthAge / 1.88).toFixed(2);
 
+    const [marsAgeResult, setMarsAgeResult] =useState("2.4 billion");
+
     const imageRef:any = useRef();
 
     function handleSubmit(event: any) {
         event.preventDefault();
         setNameInput(name);
         setBirthdayInput(birthday);
+        setMarsAgeResult(marsAge)
     }
 
     const handlePrint = useReactToPrint({
         content: () => imageRef.current,
     })
+
     return (
         <main>
             <h1 className="birthday-title">Capture the Magic of Your Birthday on Mars:</h1>
@@ -46,10 +50,8 @@ export function Birthday() {
             <DateNameUserInput setName={setName} setBirthday={setBirthday} handleSubmit={handleSubmit} />
 
             {/* how to update the useState after submitting a form? */}
-            <section className={(earthAge) ? " " : "Mars-Age-hidden"} >
-                <article>
-                    <p className="MarsAge">Hi {nameInput}, you are {marsAge} Mars years old! </p>
-                </article>
+            <section>
+                <p className="MarsAge">Hi {nameInput}, you are {marsAgeResult} Mars years old! </p>
             </section>
 
             {/* <div><BirthdayYearDropdown selectedYear={selectedYear} setSelectedYear={setSelectedYear}/></div> */}
